@@ -10,8 +10,8 @@ const bodyParser = require('body-parser');
 // Middleware: parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
-//Importar y usar rutas del usuario
-app.use(require('./routes/usuario'));
+//Configuración global de rutas
+app.use(require('./routes/index'));
 
 mongoose.connect(process.env.URLDB, (err, res) => {
 
