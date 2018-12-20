@@ -3,12 +3,12 @@ const Usuario = require('../models/usuario');
 const bcrypt = require('bcrypt');
 const _ = require('underscore');
 
-const { VerifcaToken, VerificaAdmin_Role } = require('../middlewares/autenticacion'); //middleware
+const { VerificaToken, VerificaAdmin_Role } = require('../middlewares/autenticacion'); //middleware
 
 const app = express();
 
 //Listar usuarios
-app.get('/usuario', VerifcaToken, (req, res) => {
+app.get('/usuario', VerificaToken, (req, res) => {
     // res.json('get Usuario LOCAL');
 
     // return res.json({
@@ -47,7 +47,7 @@ app.get('/usuario', VerifcaToken, (req, res) => {
 });
 
 //Crear registro
-app.post('/usuario', [VerifcaToken, VerificaAdmin_Role], (req, res) => {
+app.post('/usuario', [VerificaToken, VerificaAdmin_Role], (req, res) => {
 
     let body = req.body;
 
@@ -92,7 +92,7 @@ app.post('/usuario', [VerifcaToken, VerificaAdmin_Role], (req, res) => {
 });
 
 //Actualizar registro
-app.put('/usuario/:id', [VerifcaToken, VerificaAdmin_Role], (req, res) => {
+app.put('/usuario/:id', [VerificaToken, VerificaAdmin_Role], (req, res) => {
 
     let id = req.params.id;
     let body = _.pick(req.body, ['nombre', 'email', 'img', 'role', 'estado']);
@@ -121,7 +121,7 @@ app.put('/usuario/:id', [VerifcaToken, VerificaAdmin_Role], (req, res) => {
 
 });
 
-app.delete('/usuario/:id', [VerifcaToken, VerificaAdmin_Role], (req, res) => {
+app.delete('/usuario/:id', [VerificaToken, VerificaAdmin_Role], (req, res) => {
 
     let id = req.params.id;
     let cambiaEstado = {

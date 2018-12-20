@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 // ============================
 // Verificar Token
 // ============================
-let VerifcaToken = (req, res, next) => {
+let VerificaToken = (req, res, next) => {
 
     let token = req.get('token'); // Authorization
 
@@ -55,6 +55,6 @@ let VerificaAdmin_Role = (req, res, next) => {
 }
 
 module.exports = {
-    VerifcaToken,
+    VerificaToken,
     VerificaAdmin_Role
 }
